@@ -1,5 +1,5 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
@@ -16,7 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@dom-test-app/dom-flipper-plugin": [
-        "libs/dom-flipper-plugin/src/index.ts"
+        "libs/dom-flipper-plugin/src/index.ts",
+        "../../../libs/dom-flipper-plugin/src/index.ts",
+        "../../libs/dom-flipper-plugin/src/index.ts"
+
       ]
     }
   },

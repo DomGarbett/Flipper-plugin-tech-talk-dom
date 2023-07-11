@@ -5,7 +5,11 @@ import Router from 'src/Navigation/Router';
 import { persistor, store } from 'src/Services/Redux/store';
 import { Auth0Provider } from 'react-native-auth0';
 import Config from 'react-native-config';
+import { useMyFlipperPlugin } from '@dom-test-app/dom-flipper-plugin';
+
 const App = () => {
+useMyFlipperPlugin();
+
   return (
     <Auth0Provider domain={Config.AUTH_URL} clientId={Config.AUTH_CLIENT_ID}>
       <Provider store={store}>
