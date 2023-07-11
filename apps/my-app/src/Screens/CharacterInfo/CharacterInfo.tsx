@@ -37,7 +37,6 @@ const CharacterInfo = ({ route }) => {
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
-      <>
         <Animated.View
           style={styles.headerContainer(heightValue, opacityValue)}
         >
@@ -47,8 +46,6 @@ const CharacterInfo = ({ route }) => {
             style={styles.headerImage(heightValue)}
           />
         </Animated.View>
-      </>
-      <>
         <Animated.ScrollView
           bounces={true}
           scrollEventThrottle={1}
@@ -70,7 +67,6 @@ const CharacterInfo = ({ route }) => {
             <Text style={styles.text}>Status : {character.status}</Text>
           </View>
         </Animated.ScrollView>
-      </>
     </View>
   );
 };

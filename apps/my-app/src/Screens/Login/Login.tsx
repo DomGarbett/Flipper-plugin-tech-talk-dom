@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { Text, Button, TextInput, View } from 'react-native';
+import { Text, Button, View } from 'react-native';
+
 import { styles } from './login.styles';
-import { login } from '../../Services/authenticationService';
+
 import { useAuth0 } from 'react-native-auth0';
 
 const Login = () => {

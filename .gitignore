@@ -111,3 +111,4 @@ yarn-error.log
 apps/my-app-e2e/artifacts
 apps/my-app/ios/Pods/**
 apps/my-app/.env
+.yarn/cache/*
