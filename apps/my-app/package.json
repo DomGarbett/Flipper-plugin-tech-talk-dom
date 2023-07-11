@@ -23,6 +23,7 @@
     "simple-oauth2": "*",
     "react-native-auth0": "*",
     "@shopify/flash-list": "*",
-    "react-native-background-timer": "*"
+    "react-native-background-timer": "*",
+    "react-native-flipper": "*"
   }
 }

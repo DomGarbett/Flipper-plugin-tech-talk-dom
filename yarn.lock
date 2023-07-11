@@ -5968,6 +5968,7 @@ __metadata:
     react-native-auth0: ^2.17.1
     react-native-background-timer: ^2.4.1
     react-native-config: 1.5.0
+    react-native-flipper: ^0.203.0
     react-native-gesture-handler: ^2.9.0
     react-native-safe-area-context: ^4.5.0
     react-native-screens: ^3.20.0
@@ -12514,6 +12515,16 @@ __metadata:
     react-native-windows:
       optional: true
   checksum: febe1c137425c9df95f39eea6b1b6035dd4c971dd6205a8e630ceaa4845fe7426224566836203491c1add9bb0ceaa16462dca071cd3ad0fdd6f7c7b80f2bebaf
+  languageName: node
+  linkType: hard
+
+"react-native-flipper@npm:^0.203.0":
+  version: 0.203.0
+  resolution: "react-native-flipper@npm:0.203.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: ">0.62.0"
+  checksum: 8cdb1d0c9c38f04f04c41360f8a724c8e91f3aa29b9192df866dadf6ace80a1832a21d87cd2dd25bbac4c5a43d7d9d015c1edd0f2cd53b5b777cceb4a1e8d2f1
   languageName: node
   linkType: hard
 
