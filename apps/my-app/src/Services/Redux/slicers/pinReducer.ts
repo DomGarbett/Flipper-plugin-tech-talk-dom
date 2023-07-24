@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export enum PinState {
-  ACCEPTED,
-  LOCKED,
+  ACCEPTED="accepted",
+  LOCKED = "locked",
 }
 
 const pinSlice = createSlice({

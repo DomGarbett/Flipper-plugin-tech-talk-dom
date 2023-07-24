@@ -31,7 +31,6 @@ export const useAppLockingState = () => {
       BackgroundTimer.runBackgroundTimer(() => {
         setShouldShowPin(true);
         lockDevice();
-        sendAppLockedStateData('Locked');
       }, idleThresholdInMs);
     }
     return () => {

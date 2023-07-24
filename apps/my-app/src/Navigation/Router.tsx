@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AuthStack } from './NavigationStacks';
 import PinHandler from './PinHandler';
 import { useAuth0 } from 'react-native-auth0';
-import { useMyFlipperPlugin } from '@dom-test-app/dom-flipper-plugin';
 
 const Router = () => {
   const { user } = useAuth0();

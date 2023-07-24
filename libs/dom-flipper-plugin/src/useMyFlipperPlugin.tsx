@@ -1,5 +1,6 @@
 import { Flipper, addPlugin } from 'react-native-flipper';
 import { useEffect, useState } from 'react';
+import { PinState } from 'src/Services/Redux/slicers/pinReducer';
 
 const pluginId = 'dom-rn-plugin';
 
@@ -42,12 +43,12 @@ export const useMyFlipperPlugin = () => {
     }
   };
 
-  const sendAppLockedStateData = (state: string) => {
+  const sendAppLockedStateData = (state: PinState) => {
     if (currentConnection) {
       currentConnection.send('newRow', {
         id: new Date(),
         title: 'App State Change',
-        url: `App state has changed to ${state}`,
+        url: `App state has changed to ${state.toString()}`,
       });
     }
   };
