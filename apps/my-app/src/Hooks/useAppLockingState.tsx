@@ -3,10 +3,13 @@ import { AppStates } from 'src/Services/types';
 import { useAppState } from './useAppState';
 import { lockDevice } from '../Services/pinService';
 import BackgroundTimer from 'react-native-background-timer';
+import { useMyFlipperPlugin } from '../../../../libs/dom-flipper-plugin/src/useMyFlipperPlugin';
+
 export const useAppLockingState = () => {
-  const idleThresholdInMs = 5000;
+  const idleThresholdInMs = 1000;
 
   const [currentState] = useAppState();
+  const { sendAppLockedStateData } = useMyFlipperPlugin();
 
   const hasTransitionedBackground = currentState === AppStates.Background;
   const hasTransitionedInactive = currentState === AppStates.Inactive;
@@ -28,6 +31,7 @@ export const useAppLockingState = () => {
       BackgroundTimer.runBackgroundTimer(() => {
         setShouldShowPin(true);
         lockDevice();
+        sendAppLockedStateData('Locked');
       }, idleThresholdInMs);
     }
     return () => {

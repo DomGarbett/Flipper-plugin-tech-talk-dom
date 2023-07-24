@@ -3,9 +3,11 @@ import { View, Text, Image } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { useGetAllCharactersQuery } from 'src/Services/APIQueries/RickMortyService';
 import CharacterListItem from 'src/Components/CharacterListItem/CharacterListItem';
+import { useMyFlipperPlugin } from '@dom-test-app/dom-flipper-plugin';
 const Characters = ({ navigation }) => {
   const { data, isLoading } = useGetAllCharactersQuery();
-
+  const { sendData } = useMyFlipperPlugin();
+  sendData('characterList');
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       {isLoading ? (

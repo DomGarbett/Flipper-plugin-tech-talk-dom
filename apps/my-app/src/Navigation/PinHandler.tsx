@@ -12,6 +12,7 @@ const PinHandler = () => {
 
   const hasEnteredPin = pinState === PinState.ACCEPTED;
 
+
   return hasEnteredPin ? <AppStack /> : <PinStack />;
 };
 

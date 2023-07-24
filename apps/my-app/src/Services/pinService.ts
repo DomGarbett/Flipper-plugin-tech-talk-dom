@@ -1,8 +1,11 @@
+import { useMyFlipperPlugin } from '../../../../libs/dom-flipper-plugin/src/useMyFlipperPlugin';
 import {PinState, setPinState} from './Redux/slicers/pinReducer';
 import {store} from './Redux/store';
 
+
 const lockDevice = () => {
-  store.dispatch(setPinState(PinState.LOCKED));
+store.dispatch(setPinState(PinState.LOCKED));
+
 };
 
 const unlockDevice = () => {

@@ -1,37 +1,56 @@
 import { Flipper, addPlugin } from 'react-native-flipper';
 import { useEffect, useState } from 'react';
 
-const pluginId = 'dom-react-native-flipper-plugin';
+const pluginId = 'dom-rn-plugin';
 
 export const useMyFlipperPlugin = () => {
-  let indexNum = 0;
-
-  const [connection, setConnection] = useState<Flipper.FlipperConnection>();
+  const [currentConnection, setConnection] =
+    useState<Flipper.FlipperConnection>();
 
   useEffect(() => {
-    addPlugin({
-      getId() {
-        return pluginId;
-      },
-      onConnect(conn) {
-        setConnection(conn);
-        conn.receive('getData', (data, responder) => {
-          console.log('incoming data', data);
-          // respond with some data
-          responder.success({
-            ack: true,
-          });
-        });
+    if (!currentConnection) {
+      addPlugin({
+        getId() {
+          return pluginId;
+        },
+        onConnect(conn) {
+          setConnection(conn);
 
-        conn.send('newRow', {
-          id: indexNum++,
-          title: 'test',
-          url: 'https://placehold.co/600x400',
-        });
-      },
-      onDisconnect() {
-        console.log('disconnected');
-      },
-    });
+          conn.receive('getData', (data, responder) => {
+            console.log('incoming data', data);
+            // respond with some data
+            responder.success({
+              ack: true,
+            });
+          });
+        },
+        onDisconnect() {
+          setConnection(null);
+        },
+      });
+    }
   }, []);
+
+  // TOOD hook this into adobe analytics
+  const sendData = (value: string) => {
+    if (currentConnection) {
+      currentConnection.send('newRow', {
+        id: new Date(),
+        title: value,
+        url: 'https://placehold.co/600x400',
+      });
+    }
+  };
+
+  const sendAppLockedStateData = (state: string) => {
+    if (currentConnection) {
+      currentConnection.send('newRow', {
+        id: new Date(),
+        title: 'App State Change',
+        url: `App state has changed to ${state}`,
+      });
+    }
+  };
+
+  return { sendData, sendAppLockedStateData };
 };
