@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppLockingState } from 'src/Hooks/useAppLockingState';
 import { PinState } from '../Services/Redux/slicers/pinReducer';
@@ -16,7 +16,8 @@ const PinHandler = () => {
 
   useEffect(() => {
     sendAppLockedStateData(pinState);
-  }, [pinState, sendAppLockedStateData]);
+    //eslint-disable-next-line
+  }, [pinState]);
 
   return hasEnteredPin ? <AppStack /> : <PinStack />;
 };

@@ -3033,6 +3033,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-navigation/devtools@npm:^6.0.19":
+  version: 6.0.19
+  resolution: "@react-navigation/devtools@npm:6.0.19"
+  dependencies:
+    deep-equal: ^2.0.5
+    nanoid: ^3.1.23
+    stacktrace-parser: ^0.1.10
+  peerDependencies:
+    react: "*"
+  checksum: 0a50b9ce3e3498ffee0f86b816f7dd123e87764c10b95a01d066a82c36ef4637df3be255285d0a492f040051e8346cafb1378b1c83c0f9b3b39970e090579059
+  languageName: node
+  linkType: hard
+
 "@react-navigation/elements@npm:^1.3.13, @react-navigation/elements@npm:^1.3.17":
   version: 1.3.17
   resolution: "@react-navigation/elements@npm:1.3.17"
@@ -5929,6 +5942,7 @@ __metadata:
     "@react-native-community/cli": 10.1.3
     "@react-native-community/cli-platform-android": 10.1.3
     "@react-native-community/cli-platform-ios": 10.1.1
+    "@react-navigation/devtools": ^6.0.19
     "@react-navigation/native": ^6.1.6
     "@react-navigation/native-stack": 6.9.8
     "@react-navigation/stack": ^6.3.12
@@ -13677,7 +13691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stacktrace-parser@npm:^0.1.3":
+"stacktrace-parser@npm:^0.1.10, stacktrace-parser@npm:^0.1.3":
   version: 0.1.10
   resolution: "stacktrace-parser@npm:0.1.10"
   dependencies:

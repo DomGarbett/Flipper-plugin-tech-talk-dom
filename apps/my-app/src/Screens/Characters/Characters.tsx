@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { useGetAllCharactersQuery } from 'src/Services/APIQueries/RickMortyService';
 import CharacterListItem from 'src/Components/CharacterListItem/CharacterListItem';
