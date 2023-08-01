@@ -8,11 +8,15 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import GenderIcon from 'src/Components/GenderIcon/GenderIcon';
-import { Character } from 'src/Services/types';
 import { styles } from './CharacterInfo.styles';
+import { useGetCharacterByIdQuery } from 'src/Services/APIQueries/RickMortyService';
 
 const CharacterInfo = ({ route }) => {
-  const character: Character = route.params.character;
+  console.log(route);
+  const { data, isLoading } = useGetCharacterByIdQuery(
+    route.params.character.id
+  );
+
   const safeAreaTop = useSafeAreaInsets().top;
 
   const animateValue = useRef(new Animated.Value(0)).current;
@@ -35,40 +39,36 @@ const CharacterInfo = ({ route }) => {
     animateValue.setValue(scrollYval);
   };
 
-  return (
+  return !isLoading ? (
     <View style={{ flex: 1, flexDirection: 'column' }}>
-        <Animated.View
-          style={styles.headerContainer(heightValue, opacityValue)}
-        >
-          <Animated.View style={styles.tintedHeader(heightValue)} />
-          <Animated.Image
-            source={{ uri: character.image }}
-            style={styles.headerImage(heightValue)}
-          />
-        </Animated.View>
-        <Animated.ScrollView
-          bounces={true}
-          scrollEventThrottle={1}
-          contentContainerStyle={styles.contentContainer(initialHeaderHeight)}
-          onScroll={(event) => onScroll(event)}
-        >
-          <View style={styles.textContainer}>
-            <Text style={styles.nameText}>
-              Character Name : {character.name}
-            </Text>
-            <Text style={styles.text}>
-              Species : {character.species}
-              {character.type ? ` - ${character.type}` : ''}
-            </Text>
-            <View style={styles.genderContainer}>
-              <Text style={styles.text}>Gender : {character.gender}</Text>
-              <GenderIcon gender={character.gender}></GenderIcon>
-            </View>
-            <Text style={styles.text}>Status : {character.status}</Text>
+      <Animated.View style={styles.headerContainer(heightValue, opacityValue)}>
+        <Animated.View style={styles.tintedHeader(heightValue)} />
+        <Animated.Image
+          source={{ uri: data.image }}
+          style={styles.headerImage(heightValue)}
+        />
+      </Animated.View>
+      <Animated.ScrollView
+        bounces={true}
+        scrollEventThrottle={1}
+        contentContainerStyle={styles.contentContainer(initialHeaderHeight)}
+        onScroll={(event) => onScroll(event)}
+      >
+        <View style={styles.textContainer}>
+          <Text style={styles.nameText}>Character Name : {data.name}</Text>
+          <Text style={styles.text}>
+            Species : {data.species}
+            {data.type ? ` - ${data.type}` : ''}
+          </Text>
+          <View style={styles.genderContainer}>
+            <Text style={styles.text}>Gender : {data.gender}</Text>
+            <GenderIcon gender={data.gender}></GenderIcon>
           </View>
-        </Animated.ScrollView>
+          <Text style={styles.text}>Status : {data.status}</Text>
+        </View>
+      </Animated.ScrollView>
     </View>
-  );
+  ) : null;
 };
 
 export default CharacterInfo;

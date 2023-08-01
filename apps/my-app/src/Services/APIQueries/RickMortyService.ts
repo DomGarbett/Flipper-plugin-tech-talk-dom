@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { CharacterResponse } from '../types';
+import { Character, CharacterResponse } from '../types';
+
 
 export const rickAndMortyService = createApi({
   reducerPath: 'rickApi',
@@ -11,7 +12,13 @@ export const rickAndMortyService = createApi({
     getAllCharacters: builder.query<CharacterResponse, void>({
       query: () => '/character',
     }),
+    getCharacterById: builder.query<Character, string>({
+      query: (id) => `character/${id}`,
+    }),
+
   }),
 });
 
-export const { useGetAllCharactersQuery } = rickAndMortyService;
+export const { useGetAllCharactersQuery, useGetCharacterByIdQuery } =
+  rickAndMortyService;
+

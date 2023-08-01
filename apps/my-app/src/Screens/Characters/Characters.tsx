@@ -9,15 +9,14 @@ import { ACPCore } from '@adobe/react-native-acpcore';
 const Characters = ({ navigation }) => {
   const { data, isLoading } = useGetAllCharactersQuery();
   const { sendAnalyticsData } = useMyFlipperPlugin();
-  sendAnalyticsData('characterList', 'eventAction');
 
   useEffect(() => {
-    // ACPCore.trackAction('eventAction', { action: 'hello world' });
+    sendAnalyticsData('characterList', 'eventAction');
 
-    ACPCore.trackAction('eventAction', {
-      buttonClicks: 'driving looking after my car view all cta',
-      accounttype: 'Full',
-    });
+    // ACPCore.trackAction('eventAction', {
+    //   buttonClicks: 'characterList',
+    //   accounttype: 'Full',
+    // });
   }, []);
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

@@ -4,21 +4,17 @@ import {
   useNavigationContainerRef,
 } from '@react-navigation/native';
 
-import { AuthStack } from './NavigationStacks';
-import PinHandler from './PinHandler';
-import { useAuth0 } from 'react-native-auth0';
 import { useFlipper } from '@react-navigation/devtools';
+import AppRouter from './AppRouter';
 
 const Router = () => {
-  const { user } = useAuth0();
-  const isLoggedOut = !user;
   const navigationRef = useNavigationContainerRef();
 
   useFlipper(navigationRef);
 
   return (
     <NavigationContainer ref={navigationRef}>
-      {isLoggedOut ? <AuthStack /> : <PinHandler />}
+      <AppRouter />
     </NavigationContainer>
   );
 };

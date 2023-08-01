@@ -8,8 +8,6 @@ import Config from 'react-native-config';
 import { useMyFlipperPlugin } from '@dom-test-app/dom-flipper-plugin';
 
 const App = () => {
-  useMyFlipperPlugin();
-
   return (
     <Auth0Provider domain={Config.AUTH_URL} clientId={Config.AUTH_CLIENT_ID}>
       <Provider store={store}>
