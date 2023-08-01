@@ -12,7 +12,6 @@ import { styles } from './CharacterInfo.styles';
 import { useGetCharacterByIdQuery } from 'src/Services/APIQueries/RickMortyService';
 
 const CharacterInfo = ({ route }) => {
-  console.log(route);
   const { data, isLoading } = useGetCharacterByIdQuery(
     route.params.character.id
   );

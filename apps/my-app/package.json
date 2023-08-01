@@ -28,6 +28,8 @@
     "react-native-background-timer": "*",
     "react-native-flipper": "*",
     "@react-navigation/devtools": "*",
-    "@adobe/react-native-acpanalytics": "*"
+    "@adobe/react-native-acpanalytics": "*",
+    "@react-navigation/core": "*",
+    "redux-flipper": "*"
   }
 }
