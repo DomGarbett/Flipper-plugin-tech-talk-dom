@@ -2,6 +2,14 @@ PODS:
   - A0Auth0 (2.17.1):
     - Auth0 (~> 2.3)
     - React-Core
+  - ACPAnalytics (2.5.4):
+    - ACPAnalytics/xcframeworks (= 2.5.4)
+    - ACPCore (>= 2.9.6)
+  - ACPAnalytics/xcframeworks (2.5.4):
+    - ACPCore (>= 2.9.6)
+  - ACPCore (2.9.7):
+    - ACPCore/main (= 2.9.7)
+  - ACPCore/main (2.9.7)
   - Auth0 (2.3.2):
     - JWTDecode (~> 3.0)
     - SimpleKeychain (~> 1.0)
@@ -102,6 +110,12 @@ PODS:
     - fmt (~> 6.2.1)
     - glog
     - libevent
+  - RCTACPAnalytics (2.0.1):
+    - ACPAnalytics
+    - React
+  - RCTACPCore (2.0.2):
+    - ACPCore
+    - React
   - RCTRequired (0.71.6)
   - RCTTypeSafety (0.71.6):
     - FBLazyVector (= 0.71.6)
@@ -483,6 +497,8 @@ DEPENDENCIES:
   - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
+  - "RCTACPAnalytics (from `../node_modules/@adobe/react-native-acpanalytics`)"
+  - "RCTACPCore (from `../node_modules/@adobe/react-native-acpcore`)"
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -524,6 +540,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ACPAnalytics
+    - ACPCore
     - Auth0
     - CocoaAsyncSocket
     - Flipper
@@ -560,6 +578,10 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
+  RCTACPAnalytics:
+    :path: "../node_modules/@adobe/react-native-acpanalytics"
+  RCTACPCore:
+    :path: "../node_modules/@adobe/react-native-acpcore"
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -635,6 +657,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   A0Auth0: af71ff37391d3f0305a597c7d9598290ebbc68d5
+  ACPAnalytics: 033c3824a7cac48a375aa5bdee567d691e5cafe5
+  ACPCore: 66872864b2419b5920060e7b7eb36cd615cbe0d3
   Auth0: 64da28fdc5cd499aa516dc4bfd0ace8efae2c1da
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
@@ -657,6 +681,8 @@ SPEC CHECKSUMS:
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
+  RCTACPAnalytics: 729589e9b359d77c2b45a2d129d08dec8c72a8a5
+  RCTACPCore: 8cb93b24fcedd3eec3a69df72b74c2c7110d95f1
   RCTRequired: 5c6fd63b03abb06947d348dadac51c93e3485bd8
   RCTTypeSafety: 1c66daedd66f674e39ce9f40782f0d490c78b175
   React: e11ca7cdc7aa4ddd7e6a59278b808cfe17ebbd9f

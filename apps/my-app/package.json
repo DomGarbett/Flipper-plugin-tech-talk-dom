@@ -9,6 +9,8 @@
     "react-native": "*",
     "react-native-config": "*",
     "react-native-svg": "*",
+    "@adobe/react-native-acpcore": "*",
+    "adobe/react-native-acpanalytics": "*",
     "@react-native-async-storage/async-storage": "*",
     "metro-config": "*",
     "@react-navigation/native": "*",
@@ -24,6 +26,8 @@
     "react-native-auth0": "*",
     "@shopify/flash-list": "*",
     "react-native-background-timer": "*",
-    "react-native-flipper": "*"
+    "react-native-flipper": "*",
+    "@react-navigation/devtools": "*",
+    "@adobe/react-native-acpanalytics": "*"
   }
 }

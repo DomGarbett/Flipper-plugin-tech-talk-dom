@@ -1,57 +1,60 @@
 import { Flipper, addPlugin } from 'react-native-flipper';
 import { useEffect, useState } from 'react';
 import { PinState } from 'src/Services/Redux/slicers/pinReducer';
+import { toggleDevice } from 'src/Services/pinService';
 
-const pluginId = 'dom-rn-plugin';
+const pluginId = 'dom-rn-plugin'; // needs to be same on both client and server
 
 export const useMyFlipperPlugin = () => {
   const [currentConnection, setConnection] =
-    useState<Flipper.FlipperConnection>();
+    useState<Flipper.FlipperConnection | null>();
 
   useEffect(() => {
-    if (!currentConnection) {
-      addPlugin({
-        getId() {
-          return pluginId;
-        },
-        onConnect(conn) {
-          setConnection(conn);
+    if (__DEV__) {
+      if (!currentConnection) {
+        addPlugin({
+          getId() {
+            return pluginId;
+          },
+          onConnect(conn) {
+            setConnection(conn);
 
-          conn.receive('getData', (data, responder) => {
-            console.log('incoming data', data);
-            // respond with some data
-            responder.success({
-              ack: true,
+            conn.receive('toggleLock', (_data, responder) => {
+              toggleDevice();
+              // respond with some data
+              responder.success({
+                ack: true,
+              });
             });
-          });
-        },
-        onDisconnect() {
-          setConnection(null);
-        },
-      });
-    }
+          },
+          onDisconnect() {
+            setConnection(null);
+          },
+        });
+      }
+    } //eslint-disable-next-line  react-hooks/exhaustive-deps
   }, []);
 
-  // TOOD hook this into adobe analytics
-  const sendData = (value: string) => {
+  const sendAnalyticsData = (value: string, eventType: string) => {
     if (currentConnection) {
-      currentConnection.send('newRow', {
+      currentConnection.send('adobeDataRow', {
         id: new Date(),
-        title: value,
-        url: 'https://placehold.co/600x400',
+        analyticsTag: value,
+        eventType: eventType,
+        date: new Date(),
       });
     }
   };
 
   const sendAppLockedStateData = (state: PinState) => {
     if (currentConnection) {
-      currentConnection.send('newRow', {
+      currentConnection.send('lockedStateRow', {
         id: new Date(),
-        title: 'App State Change',
-        url: `App state has changed to ${state.toString()}`,
+        date: new Date(),
+        newState: state.toString(),
       });
     }
   };
 
-  return { sendData, sendAppLockedStateData };
+  return { sendAnalyticsData, sendAppLockedStateData };
 };

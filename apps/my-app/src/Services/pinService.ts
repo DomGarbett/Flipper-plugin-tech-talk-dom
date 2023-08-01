@@ -12,4 +12,13 @@ const unlockDevice = () => {
   store.dispatch(setPinState(PinState.ACCEPTED));
 };
 
-export {lockDevice, unlockDevice};
+const toggleDevice = () => {
+  if (store.getState().pin.pinState === PinState.ACCEPTED) {
+    lockDevice();
+  } else {
+    unlockDevice();
+  }
+};
+
+export { lockDevice, unlockDevice, toggleDevice };
+

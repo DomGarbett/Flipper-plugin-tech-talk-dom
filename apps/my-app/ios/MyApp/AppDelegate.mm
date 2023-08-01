@@ -2,6 +2,10 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
+#import <ACPCore.h>
+#import "RNCConfig.h"
+#import "ACPAnalytics.h"
+#import  "ACPIdentity.h"
 
 @implementation AppDelegate
 
@@ -17,6 +21,16 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+
+  NSString *taggingKey = [RNCConfig envFor:@"ADOBE_TAGGING_KEY"];
+  [ACPCore setLogLevel:ACPMobileLogLevelDebug];
+  [ACPCore configureWithAppId:taggingKey];
+  [ACPCore setWrapperType:ACPMobileWrapperTypeReactNative];
+  [ACPIdentity registerExtension];
+  [ACPAnalytics registerExtension];
+  [ACPCore start:^{
+    [ACPCore lifecycleStart:nil];
+  }];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

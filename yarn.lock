@@ -12,6 +12,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adobe/react-native-acpanalytics@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@adobe/react-native-acpanalytics@npm:2.0.1"
+  dependencies:
+    "@babel/runtime": ^7.14.8
+  peerDependencies:
+    "@adobe/react-native-acpcore": ">=2.0.0"
+    react-native: ">=0.60.0"
+  checksum: 76bcbbd57194c08e49bf1bf1d26ce409625e3a99bec6ce26ee48f3e0b796ab3c9355ab4d49332163fcbceac95d6aed9b911f5621451cb9e301620635752f0ca0
+  languageName: node
+  linkType: hard
+
+"@adobe/react-native-acpcore@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@adobe/react-native-acpcore@npm:2.0.2"
+  peerDependencies:
+    react-native: ">=0.60.0"
+  checksum: ec396ab45a21180755e9a1a244b7b8290bc8f059826b36be6af8c40554889aa8064570ede07e783d5e84db1cac5520b44311d42d2d5f4d11d6eabe23b6fd45a6
+  languageName: node
+  linkType: hard
+
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -5930,6 +5951,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dom-test-app@workspace:."
   dependencies:
+    "@adobe/react-native-acpanalytics": ^2.0.1
+    "@adobe/react-native-acpcore": ^2.0.2
     "@babel/preset-react": ^7.14.5
     "@nrwl/detox": 15.8.7
     "@nrwl/eslint-plugin-nx": 15.8.7

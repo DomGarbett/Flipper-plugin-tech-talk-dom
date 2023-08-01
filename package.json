@@ -4,6 +4,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@adobe/react-native-acpanalytics": "^2.0.1",
+    "@adobe/react-native-acpcore": "^2.0.2",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/devtools": "^6.0.19",
     "@react-navigation/native": "^6.1.6",
