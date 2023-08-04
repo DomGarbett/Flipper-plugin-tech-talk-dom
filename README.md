@@ -12,7 +12,20 @@ Run `nx serve myApp` for a dev server. Navigate to http://localhost:4200/. The a
 
 Run `nx graph` to see a diagram of the dependencies of the projects.
 
+<<<<<<< HEAD
 ## Remote caching
+=======
+##apps
+
+1. my-app -RN test applicationn that calls rick and morty via RTK query
+2. flipper-client react flipper plugin UI that receives and sends events to flipper plugin
+
+
+
+## libs
+
+1. dom-flipper-plugin example flipper plugin that is hooked into test application that sends events to flipper client UI
+>>>>>>> parent of 69039c6 (update readme)
 
 Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
 
