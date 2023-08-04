@@ -30,7 +30,11 @@ export const useMyFlipperPlugin = () => {
 
             conn.receive('characterNav', (_data, responder) => {
               // respond with some data
+
+              console.log(_data);
+
               // in here we should
+
               const item = _data.id;
               navigation.navigate('CharacterInfo', {
                 character: { id: item },

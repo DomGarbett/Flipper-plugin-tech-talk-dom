@@ -6005,7 +6005,7 @@ __metadata:
     react-native-auth0: ^2.17.1
     react-native-background-timer: ^2.4.1
     react-native-config: 1.5.0
-    react-native-flipper: 0.203.0
+    react-native-flipper: ^0.203.0
     react-native-gesture-handler: ^2.9.0
     react-native-safe-area-context: ^4.5.0
     react-native-screens: ^3.20.0
@@ -12555,7 +12555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-flipper@npm:0.203.0":
+"react-native-flipper@npm:^0.203.0":
   version: 0.203.0
   resolution: "react-native-flipper@npm:0.203.0"
   peerDependencies:
