@@ -22,9 +22,6 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const createDebugger = require('redux-flipper').default;
-
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -33,7 +30,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(createDebugger()).concat(rickAndMortyService.middleware),
+    }).concat(rickAndMortyService.middleware),
 });
 
 export const persistor = persistStore(store);
